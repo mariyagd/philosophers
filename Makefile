@@ -10,7 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.c parser.c atoi_atol.c ft_calloc.c philo_linked_list.c
+SRCS = main.c parser.c atoi_atol.c ft_calloc.c philo_linked_list.c threads.c \
+	   time.c life.c 
 
 OBJS = ${SRCS:.c=.o}
 
@@ -40,7 +41,7 @@ all: ${NAME}
 clean:
 	${RM} ${OBJS}
 
-flean : clean
+fclean : clean
 	${RM} ${NAME}
 
-re: flean all
+re: fclean all
