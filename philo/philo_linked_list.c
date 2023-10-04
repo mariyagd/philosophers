@@ -17,26 +17,26 @@ t_philo	*create_philo(int i, t_params *params)
 			free(philo);
 		return (NULL);
 	}
-	if (pthread_mutex_init(&philo->mx_dead, NULL) < 0)
+/*	if (pthread_mutex_init(&philo->mx_dead, NULL) < 0)
 	{
 		printf("Error: pthread_mutex_init for mx_dead [%d]\n", i);
 		pthread_mutex_destroy(&philo->mx_fork);
 		if (i != 0)
 			free(philo);
 		return (NULL);
-	}
+	}*/
 	if (params->meal_rule != NO_RULE && pthread_mutex_init(&philo->mx_meals, NULL) < 0)
 	{
 		printf("Error: pthread_mutex_init for mx_meals [%d]\n", i);
 		pthread_mutex_destroy(&philo->mx_fork);
-		pthread_mutex_destroy(&philo->mx_dead);
+	//	pthread_mutex_destroy(&philo->mx_dead);
 		if (i != 0)
 			free(philo);
 		return (NULL);
 	}
 	philo->id = i + 1;
 	philo->params = params;
-	philo->dead = false;
+	philo->max_meals = false;
 	return (philo);
 }
 
@@ -51,8 +51,9 @@ void	free_philo_list(t_philo **head)
 	{
 		next = current->next;
 		pthread_mutex_destroy(&current->mx_fork);
-		pthread_mutex_destroy(&current->mx_dead);
+	//	pthread_mutex_destroy(&current->mx_dead);
 		pthread_mutex_destroy(&current->mx_meals);
+		pthread_mutex_destroy(&current->mx_last_meal);
 		free(current);
 		current = next;
 	}
@@ -72,8 +73,9 @@ void	free_philo_circular_list(t_philo **head, int n_philos)
 	{
 		next = current->next;
 		pthread_mutex_destroy(&current->mx_fork);
-		pthread_mutex_destroy(&current->mx_dead);
+	//	pthread_mutex_destroy(&current->mx_dead);
 		pthread_mutex_destroy(&current->mx_meals);
+		pthread_mutex_destroy(&current->mx_last_meal);
 		free(current);
 		current = next;
 		i++;

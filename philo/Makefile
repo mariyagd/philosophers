@@ -6,12 +6,12 @@
 #    By: mdanchev <mdanchev@student.42lausanne.ch>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 09:32:51 by mdanchev          #+#    #+#              #
-#    Updated: 2023/10/02 09:36:49 by mdanchev         ###   lausanne.ch        #
+#    Updated: 2023/10/04 15:13:01 by mdanchev         ###   lausanne.ch        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = main.c parser.c atoi_atol.c ft_calloc.c philo_linked_list.c threads.c \
-	   time.c life.c 
+	   time.c life.c game.c 
 
 OBJS = ${SRCS:.c=.o}
 
@@ -29,6 +29,8 @@ SANITIZE	?= 0
 
 ifeq ($(SANITIZE), 1)
 CFLAGS += -fsanitize=thread
+else ifeq ($SANITIZE), 2)
+CFLAGS += -fsanitize=address
 endif
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
