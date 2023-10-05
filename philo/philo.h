@@ -6,7 +6,7 @@
 /*   By: mdanchev <mdanchev@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 09:29:57 by mdanchev          #+#    #+#             */
-/*   Updated: 2023/10/04 15:16:00 by mdanchev         ###   lausanne.ch       */
+/*   Updated: 2023/10/05 12:25:22 by mdanchev         ###   lausanne.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PHILO_H
@@ -25,42 +25,39 @@
 # define SUCCESS	1
 # define FAILURE	0
 # define NO_RULE	-1
-# define STOP_COUNT	-5
 
-
-typedef struct 					s_params
+typedef struct s_params
 {
 	int							n_philo;
 	long						t_die;
 	long						t_eat;
 	long						t_sleep;
 	int							meal_rule;
+}								t_params;
 
-}       						t_params;
-
-typedef struct 					s_philo
+typedef struct s_philo
 {
 	int							id;
-	pthread_mutex_t   			mx_fork;
-	long						last_meal;
-	pthread_mutex_t				mx_last_meal;
-	bool						max_meals;
-	pthread_t					thread;
 	int							nb_meals;
-	pthread_mutex_t				mx_meals;
-	t_params          			*params;
+	long						last_meal;
+	bool						ate_all_meals;
+	t_params					*params;
+	pthread_t					thread;
 	struct s_game				*ggame;
-	struct s_philo 				*next;
-}              					t_philo;
+	struct s_philo				*next;
+	pthread_mutex_t				mx_fork;
+}								t_philo;
 
-typedef struct 					s_game 
+typedef struct s_game
 {
-	long						start;
-	t_params					params;
-	t_philo						*philo;
 	int							meals_counter;
+	long						start;
 	bool						exit_game;
+	t_philo						*philo;
+	t_params					params;
 	pthread_mutex_t				mx_exit;
+	pthread_mutex_t				mx_last_meal;
+	pthread_mutex_t				mx_count;
 	pthread_mutex_t				mx_print;
 }								t_game;
 
@@ -75,6 +72,15 @@ long	timestamp(void);
 long	passed_time(long start);
 int		create_threads(t_game *game);
 void	*life_routine(void *args);
-void	print_action(t_philo *philo, long start, long current, char *s);
-
+bool	print_action(t_philo *philo, long start, long current, char *s);
+bool	print_at_start(t_philo *philo, long start, long current, char *s);
+void	free_philo_circular_list(t_philo **head, int n_philos);
+void	free_philo_linear_list(t_philo **head);
+size_t	ft_strlen(const char *s);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		int_check(char *str);
+int		positive_int_check(char *str);
+int		long_check(char *str);
+int		positive_long_check(char *str);
+int		whitin_min_max(int ac, char **av);
 #endif

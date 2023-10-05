@@ -1,0 +1,103 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CC	Makefile	/^CC = gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -Wall -Wextra -Werror -g3$/;"	m
+FAILURE	philo.h	/^# define FAILURE	/;"	d
+NAME	Makefile	/^NAME = philo$/;"	m
+NO_RULE	philo.h	/^# define NO_RULE	/;"	d
+OBJS	Makefile	/^OBJS = ${SRCS:.c=.o}$/;"	m
+PHILO_H	philo.h	/^# define PHILO_H$/;"	d
+PTHLIB	Makefile	/^PTHLIB = -lpthread$/;"	m
+RM	Makefile	/^RM = rm -f$/;"	m
+SANITIZE	Makefile	/^SANITIZE	?= 0$/;"	m
+SRCS	Makefile	/^SRCS = main.c parser.c atoi_atol.c ft_calloc.c philo_linked_list.c threads.c \\$/;"	m
+STOP_COUNT	philo.h	/^# define STOP_COUNT	/;"	d
+SUCCESS	philo.h	/^# define SUCCESS	/;"	d
+check_all_ate	threads.c	/^bool	check_all_ate(t_game *game, t_philo *philo)$/;"	f
+checker_routine	threads.c	/^void	checker_routine(t_game *game)$/;"	f
+choose_test	LazyPhilosophersTester/test.sh	/^choose_test () {$/;"	f
+command	LazyPhilosophersTester/PhilosophersChecker.py	/^command = sys.argv[1]$/;"	v
+create_circular_list	philo_linked_list.c	/^void	create_circular_list(t_philo **list)$/;"	f
+create_philo	philo_linked_list.c	/^t_philo	*create_philo(int i, t_params *params)$/;"	f
+create_threads	threads.c	/^int	create_threads(t_game *game)$/;"	f
+die_test	LazyPhilosophersTester/test.sh	/^die_test () {$/;"	f
+draw_progress_bar	LazyPhilosophersTester/test.sh	/^draw_progress_bar() {$/;"	f
+eat_routine	life.c	/^int	eat_routine(t_philo *philo)$/;"	f
+error_log	Philosphers-42Project-Tester/start.sh	/^error_log ()$/;"	f
+exit_game	life.c	/^bool	exit_game(t_philo *philo)$/;"	f
+exit_game	philo.h	/^	bool						exit_game;$/;"	m	struct:s_game
+fcntl	LazyPhilosophersTester/PhilosophersChecker.py	/^import fcntl$/;"	i
+free_and_destroy	main.c	/^void	free_and_destroy(t_game *game)$/;"	f
+free_philo_circular_list	free_philo.c	/^void	free_philo_circular_list(t_philo **head, int n_philos)$/;"	f
+free_philo_list	free_philo.c	/^void	free_philo_list(t_philo **head)$/;"	f
+ft_atoi	atoi_atol.c	/^int	ft_atoi(char *str)$/;"	f
+ft_atol	atoi_atol.c	/^long	ft_atol(char *str)$/;"	f
+ft_bzero	ft_calloc.c	/^void	ft_bzero(void *s, size_t n)$/;"	f
+ft_calloc	ft_calloc.c	/^void	*ft_calloc(size_t count, size_t size)$/;"	f
+ggame	philo.h	/^	struct s_game				*ggame;$/;"	m	struct:s_philo	typeref:struct:s_philo::s_game
+helper	parser.c	/^int	helper(char **av, int i, int j)$/;"	f
+id	philo.h	/^	int							id;$/;"	m	struct:s_philo
+init_game_mutex	game.c	/^int	init_game_mutex(t_game *game)$/;"	f
+init_philo_mutex	philo_linked_list.c	/^int	init_philo_mutex(t_philo *philo, int i, t_params *params)$/;"	f
+is_digit	parser.c	/^int	is_digit(char **av)$/;"	f
+last_meal	philo.h	/^	long						last_meal;$/;"	m	struct:s_philo
+life_routine	life.c	/^void	*life_routine(void *args)$/;"	f
+main	main.c	/^int	main(int ac, char **av)$/;"	f
+max_meals	philo.h	/^	bool						max_meals;$/;"	m	struct:s_philo
+meal_rule	philo.h	/^	int							meal_rule;$/;"	m	struct:s_params
+meals_counter	philo.h	/^	int							meals_counter;$/;"	m	struct:s_game
+mx_exit	philo.h	/^	pthread_mutex_t				mx_exit;$/;"	m	struct:s_game
+mx_fork	philo.h	/^	pthread_mutex_t				mx_fork;$/;"	m	struct:s_philo
+mx_last_meal	philo.h	/^	pthread_mutex_t				mx_last_meal;$/;"	m	struct:s_philo
+mx_meals	philo.h	/^	pthread_mutex_t				mx_meals;$/;"	m	struct:s_philo
+mx_print	philo.h	/^	pthread_mutex_t				mx_print;$/;"	m	struct:s_game
+n_philo	philo.h	/^	int							n_philo;$/;"	m	struct:s_params
+nb_meals	philo.h	/^	int							nb_meals;$/;"	m	struct:s_philo
+negative_or_invalid_argument	parser.c	/^void	negative_or_invalid_argument(char *str)$/;"	f
+next	philo.h	/^	struct s_philo				*next;$/;"	m	struct:s_philo	typeref:struct:s_philo::s_philo
+no_die_test	LazyPhilosophersTester/test.sh	/^no_die_test () {$/;"	f
+os	LazyPhilosophersTester/PhilosophersChecker.py	/^import os$/;"	i
+params	philo.h	/^	t_params					*params;$/;"	m	struct:s_philo
+params	philo.h	/^	t_params					params;$/;"	m	struct:s_game
+parse_arguments	parser.c	/^int	parse_arguments(int ac, char **av)$/;"	f
+passed_time	time.c	/^long	passed_time(long start)$/;"	f
+philo	philo.h	/^	t_philo						*philo;$/;"	m	struct:s_game
+pid	LazyPhilosophersTester/PhilosophersChecker.py	/^	pid = pipe.pid$/;"	v
+pid	LazyPhilosophersTester/PhilosophersChecker.py	/^pid = 0$/;"	v
+pipe	LazyPhilosophersTester/PhilosophersChecker.py	/^	pipe = None$/;"	v
+pipe	LazyPhilosophersTester/PhilosophersChecker.py	/^pipe = None$/;"	v
+pipe	LazyPhilosophersTester/PhilosophersChecker.py	/^pipe = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)$/;"	v
+print_action	print.c	/^void	print_action(t_philo *philo, long start, long current, char *s)$/;"	f
+s_game	philo.h	/^typedef struct s_game$/;"	s
+s_params	philo.h	/^typedef struct s_params$/;"	s
+s_philo	philo.h	/^typedef struct s_philo$/;"	s
+set_game	game.c	/^int	set_game(t_game *game, int ac, char **av)$/;"	f
+set_ggame_in_philo	main.c	/^void	set_ggame_in_philo(t_game *game, t_philo *philo)$/;"	f
+set_params	game.c	/^void	set_params(t_params *params, int ac, char **av)$/;"	f
+set_philos	philo_linked_list.c	/^int	set_philos(t_philo **head, t_params *params)$/;"	f
+signal	LazyPhilosophersTester/PhilosophersChecker.py	/^import signal$/;"	i
+sleep_routine	life.c	/^void	sleep_routine(t_philo *philo)$/;"	f
+smart_usleep	life.c	/^void	smart_usleep(t_philo *philo, long t_action)$/;"	f
+start	philo.h	/^	long						start;$/;"	m	struct:s_game
+subprocess	LazyPhilosophersTester/PhilosophersChecker.py	/^import subprocess$/;"	i
+sys	LazyPhilosophersTester/PhilosophersChecker.py	/^import sys$/;"	i
+t_die	philo.h	/^	long						t_die;$/;"	m	struct:s_params
+t_eat	philo.h	/^	long						t_eat;$/;"	m	struct:s_params
+t_game	philo.h	/^}								t_game;$/;"	t	typeref:struct:s_game
+t_params	philo.h	/^}								t_params;$/;"	t	typeref:struct:s_params
+t_philo	philo.h	/^}								t_philo;$/;"	t	typeref:struct:s_philo
+t_sleep	philo.h	/^	long						t_sleep;$/;"	m	struct:s_params
+test_five	Philosphers-42Project-Tester/start.sh	/^test_five ()$/;"	f
+test_four	Philosphers-42Project-Tester/start.sh	/^test_four ()$/;"	f
+test_one	Philosphers-42Project-Tester/start.sh	/^test_one ()$/;"	f
+test_six	Philosphers-42Project-Tester/start.sh	/^test_six ()$/;"	f
+test_three	Philosphers-42Project-Tester/start.sh	/^test_three ()$/;"	f
+test_two	Philosphers-42Project-Tester/start.sh	/^test_two ()$/;"	f
+thread	philo.h	/^	pthread_t					thread;$/;"	m	struct:s_philo
+time	LazyPhilosophersTester/PhilosophersChecker.py	/^import time$/;"	i
+timeout	LazyPhilosophersTester/PhilosophersChecker.py	/^timeout = int(sys.argv[2]) if len(sys.argv) > 2 else 10$/;"	v
+timestamp	time.c	/^long	timestamp(void)$/;"	f

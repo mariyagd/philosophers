@@ -6,16 +6,16 @@
 /*   By: mdanchev <mdanchev@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 09:25:09 by mdanchev          #+#    #+#             */
-/*   Updated: 2023/10/02 09:53:01 by mdanchev         ###   lausanne.ch       */
+/*   Updated: 2023/10/05 12:35:14 by mdanchev         ###   lausanne.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
 
 void	negative_or_invalid_argument(char *str)
 {
-  int i;
+	int	i;
 
-  i = 0;
+	i = 0;
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
@@ -25,10 +25,10 @@ void	negative_or_invalid_argument(char *str)
 		}
 		i++;
 	}
-  if (i == 0)
+	if (i == 0)
 		printf("Error: invalid argument\n");
-  else
-    printf("Error: all arguments must be positive\n");
+	else
+		printf("Error: all arguments must be positive\n");
 	return ;
 }
 
@@ -55,7 +55,7 @@ int	helper(char **av, int i, int j)
 	}
 }
 
-int is_digit(char **av)
+int	is_digit(char **av)
 {
 	int	i;
 	int	j;
@@ -87,7 +87,8 @@ int	parse_arguments(int ac, char **av)
 	}
 	if (is_digit(av) == FAILURE)
 		return (FAILURE);
-
+	if (whitin_min_max(ac, av) == FAILURE)
+		return (FAILURE);
 	if (ft_atoi(av[1]) < 1)
 	{
 		printf("Error: number of philosophers must be at least 1\n");

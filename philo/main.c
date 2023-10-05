@@ -11,6 +11,16 @@
 /* ************************************************************************** */
 #include "philo.h"
 
+/* In set_game() I malloc philo and create
+ * a circular linked list. 
+ * t_game structure point to that list.
+ *
+ * In set_ggame_in_philo() I set the philo
+ * structure to point to the t_game structure
+ *
+ * In this way the structure points to each other
+ */
+
 void	set_ggame_in_philo(t_game *game, t_philo *philo)
 {
 	t_philo	*ptr;
@@ -31,6 +41,8 @@ void	free_and_destroy(t_game *game)
 {
 	free_philo_circular_list(&game->philo, game->params.n_philo);
 	pthread_mutex_destroy(&game->mx_exit);
+	pthread_mutex_destroy(&game->mx_last_meal);
+	pthread_mutex_destroy(&game->mx_count);
 	pthread_mutex_destroy(&game->mx_print);
 }
 
