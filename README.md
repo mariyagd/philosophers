@@ -2,7 +2,7 @@
 
 ## 1. Create structures
 
-Each philo is represented with a structure `t_philo philo`. All philos are in a circular linked list.
+Each philo is represented with a structure `t_philo philo`. All philos are in a circular linked list (this is also simpler to free).
 Each fork is repreented with a `pthread_mutex_t mx_fork`.
 Each philo has it left fork `philo->mx_fork` and his rigth fork is in `philo->next->mx_fork`
 
