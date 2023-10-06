@@ -31,3 +31,10 @@ This function checks:
 - !!! the time to die, eat and sleep can be 0 milliseconds (the philo will take a fork and then die)
 - the number of philosophers and the number of times each philo must eat are within `INT_MAX` and `INT_MIN`
 - the time to die, eat and sleep are within `LONG_MAX` and `LONG_MIN`
+
+## 3. Processing
+
+1) All threads are launched with `pthread_create()` and executes `life_routine()`
+2) The `checker_routine()` is launched in the main process (the main thread)
+3) All threads are joined with `pthread_join()` so that the main process waits for the termination of each thread before its own termination
+4) All mutexes are destroyed with `pthread_mutex_destroy()`, and all memory allocated with `malloc` is freed.
