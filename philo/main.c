@@ -6,7 +6,7 @@
 /*   By: mdanchev <mdanchev@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 09:26:21 by mdanchev          #+#    #+#             */
-/*   Updated: 2023/10/04 15:17:02 by mdanchev         ###   lausanne.ch       */
+/*   Updated: 2023/10/06 11:28:21 by mdanchev         ###   lausanne.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -53,7 +53,11 @@ int	main(int ac, char **av)
 	if (set_game(&game, ac, av) == FAILURE)
 		return (1);
 	set_ggame_in_philo(&game, game.philo);
-	create_threads(&game);
+	if (create_threads(&game) == FAILURE)
+	{
+		free_and_destroy(&game);
+		return (1);
+	}
 	free_and_destroy(&game);
 	return (0);
 }

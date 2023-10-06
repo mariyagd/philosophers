@@ -6,7 +6,7 @@
 /*   By: mdanchev <mdanchev@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 09:13:07 by mdanchev          #+#    #+#             */
-/*   Updated: 2023/10/05 09:48:41 by mdanchev         ###   lausanne.ch       */
+/*   Updated: 2023/10/06 11:31:36 by mdanchev         ###   lausanne.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -60,6 +60,24 @@ void	checker_routine(t_game *game)
 	return ;
 }
 
+int	join_threads(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < game->params.n_philo)
+	{
+		if (pthread_join(game->philo->thread, NULL) != 0)
+		{
+			printf("Error: pthread_join\n");
+			return (FAILURE);
+		}
+		game->philo = game->philo->next;
+		i++;
+	}
+	return (SUCCESS);
+}
+
 int	create_threads(t_game *game)
 {
 	int			i;
@@ -70,19 +88,18 @@ int	create_threads(t_game *game)
 	while (i < game->params.n_philo)
 	{
 		game->philo->last_meal = timestamp();
-		pthread_create(&game->philo->thread, NULL, life_routine, \
-													(void *)game->philo);
+		if (pthread_create(&game->philo->thread, NULL, \
+					life_routine, (void *)game->philo) != 0)
+		{
+			printf("Error: pthread_create\n");
+			return (FAILURE);
+		}
 		game->philo = game->philo->next;
 		i++;
 	}
 	game->philo = game->philo->next;
 	checker_routine(game);
-	i = 0;
-	while (i < game->params.n_philo)
-	{
-		pthread_join(game->philo->thread, NULL);
-		game->philo = game->philo->next;
-		i++;
-	}
+	if (join_threads(game) == FAILURE)
+		return (FAILURE);
 	return (SUCCESS);
 }

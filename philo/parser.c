@@ -6,7 +6,7 @@
 /*   By: mdanchev <mdanchev@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 09:25:09 by mdanchev          #+#    #+#             */
-/*   Updated: 2023/10/05 12:35:14 by mdanchev         ###   lausanne.ch       */
+/*   Updated: 2023/10/06 12:35:18 by mdanchev         ###   lausanne.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -92,11 +92,6 @@ int	parse_arguments(int ac, char **av)
 	if (ft_atoi(av[1]) < 1)
 	{
 		printf("Error: number of philosophers must be at least 1\n");
-		return (FAILURE);
-	}
-	if (ft_atol(av[2]) == 0 && ft_atol(av[4]) == 0)
-	{
-		printf("Error: time to eat and time to sleep must be greater than 0\n");
 		return (FAILURE);
 	}
 	return (SUCCESS);

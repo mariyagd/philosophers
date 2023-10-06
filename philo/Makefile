@@ -6,7 +6,7 @@
 #    By: mdanchev <mdanchev@student.42lausanne.ch>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 09:32:51 by mdanchev          #+#    #+#              #
-#    Updated: 2023/10/05 13:05:28 by mdanchev         ###   lausanne.ch        #
+#    Updated: 2023/10/06 09:27:36 by mdanchev         ###   lausanne.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,6 @@ SANITIZE	?= 0
 
 ifeq ($(SANITIZE), 1)
 CFLAGS += -fsanitize=thread
-else ifeq ($SANITIZE), 2)
-CFLAGS += -fsanitize=address
 endif
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}

@@ -6,7 +6,7 @@
 /*   By: mdanchev <mdanchev@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 09:29:57 by mdanchev          #+#    #+#             */
-/*   Updated: 2023/10/05 12:25:22 by mdanchev         ###   lausanne.ch       */
+/*   Updated: 2023/10/06 12:03:30 by mdanchev         ###   lausanne.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PHILO_H
