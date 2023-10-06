@@ -38,3 +38,10 @@ This function checks:
 2) The `checker_routine()` is launched in the main process (the main thread)
 3) All threads are joined with `pthread_join()` so that the main process waits for the termination of each thread before its own termination
 4) All mutexes are destroyed with `pthread_mutex_destroy()`, and all memory allocated with `malloc` is freed.
+
+## 4. Checker routine and exit condition
+
+All threads will exit if `bool exit_game == true`.
+
+This variable is initialised to `false`.
+`checker_routine()` 
